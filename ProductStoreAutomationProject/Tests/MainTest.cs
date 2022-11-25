@@ -8,11 +8,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ZeroBankAutomationProject.Tests
+namespace ProductStoreAutomationProject.Tests
 {
     class MainTest
     {
-        string url = "http://zero.webappsecurity.com/index.html";
+        string url = "https://www.demoblaze.com/index.html";
         public IWebDriver driver;
         public MainTest() { }
 

@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ZeroBankAutomationProject.Tests
+namespace ProductStoreAutomationProject.Tests
 {
     class HomePageTest : MainTest
     {
@@ -14,7 +14,7 @@ namespace ZeroBankAutomationProject.Tests
         [Test]
         public void Test()
         {
-            IWebElement button = driver.FindElement(By.Id("online-banking"));
+            IWebElement button = driver.FindElement(By.Id("nava"));
             button.Click();
             Thread.Sleep(1000);
         }
