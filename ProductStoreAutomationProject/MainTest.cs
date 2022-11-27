@@ -2,21 +2,15 @@
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Firefox;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace ProductStoreAutomationProject.Tests
+namespace ProductStoreAutomationProject
 {
-    class MainTest
+    class MainTest : DriverCommands
     {
         string url = "https://www.demoblaze.com/index.html";
         public IWebDriver driver;
         public MainTest() { }
-
-        //public MainTest(IWebDriver driver) { this.driver = driver; }
+        public MainTest(IWebDriver driver) { this.driver = driver; }
 
         [SetUp]
         public void SetUp()

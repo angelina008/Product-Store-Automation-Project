@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace ProductStoreAutomationProject.Tests
 {
-    class HomePageTest : MainTest
+    class HomePageCombinedTest : MainTest
     {
 
         [Test]
