@@ -4,11 +4,15 @@ namespace ProductStoreAutomationProject.Elements
 {
     class CartPageElements : MainTest
     {
-        public CartPageElements(IWebDriver driver) : base(driver) { }
+        DriverCommands driverCommands;
+        public CartPageElements(IWebDriver driver) : base(driver) 
+        {
+            driverCommands = new(driver);
+        }
 
         public IWebElement ProductCartTable()
         {
-            return driver.FindElement(By.ClassName("table-responsive"));
+            return driverCommands.FindElementUntilVisible(By.ClassName("table-responsive"));
         }
     }
 }

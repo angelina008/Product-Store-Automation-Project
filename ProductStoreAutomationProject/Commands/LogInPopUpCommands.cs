@@ -10,6 +10,7 @@ namespace ProductStoreAutomationProject.Commands
         public void ClickOnXButton()
         {
             PopUpXButton().Click();
+            Thread.Sleep(200);
         }
     }
 }

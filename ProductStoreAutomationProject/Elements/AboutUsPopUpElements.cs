@@ -4,16 +4,20 @@ namespace ProductStoreAutomationProject.Elements
 {
     class AboutUsPopUpElements : MainTest
     {
-        public AboutUsPopUpElements(IWebDriver driver) : base(driver) { }
+        DriverCommands driverCommands;
+        public AboutUsPopUpElements(IWebDriver driver) : base(driver) 
+        {
+            driverCommands = new(driver);
+        }
 
         public IWebElement AboutUsPopUpTitle()
         {
-            return driver.FindElement(By.Id("videoModalLabel"));
+            return driverCommands.FindElementUntilVisible(By.Id("videoModalLabel"));
         }
 
         public IWebElement PopUpXButton()
         {
-            return driver.FindElement(By.XPath("//*[@id=\"videoModal\"]/div/div/div[1]/button")); 
+            return driverCommands.FindElementUntilClickable(By.XPath("//*[@id=\"videoModal\"]/div/div/div[1]/button")); 
         }
     }
 }

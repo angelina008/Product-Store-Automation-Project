@@ -1,4 +1,5 @@
 ﻿using NUnit.Framework;
+using OpenQA.Selenium;
 using ProductStoreAutomationProject.Asserts;
 using ProductStoreAutomationProject.Commands;
 using System;
@@ -17,6 +18,7 @@ namespace ProductStoreAutomationProject.Tests.HomePageTests
         {
             CategoriesCommands categoriesCommands = new(driver);
             CategoriesAsserts categoriesAsserts = new(driver);
+            DriverCommands driverCommands = new(driver);
             var firstPhone = "Samsung galaxy s6";
             var firstLaptop = "Sony vaio i5";
             var firstMonitor = "Apple monitor 24";

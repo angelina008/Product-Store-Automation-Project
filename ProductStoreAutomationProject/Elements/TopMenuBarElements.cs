@@ -4,11 +4,15 @@ namespace ProductStoreAutomationProject.Elements
 {
     class TopMenuBarElements : MainTest
     {
-        public TopMenuBarElements(IWebDriver driver) : base(driver) { }
+        DriverCommands driverCommands;
+        public TopMenuBarElements(IWebDriver driver) : base(driver) 
+        {
+            driverCommands = new(driver);
+        }
 
         public IWebElement ProductStoreLogo()
         {
-            return driver.FindElement(By.Id("nava"));
+            return driverCommands.FindElementUntilClickable(By.Id("nava"));
         }
 
         public IWebElement TopMenuBarHomeTab()
@@ -18,27 +22,27 @@ namespace ProductStoreAutomationProject.Elements
 
         public IWebElement TopMenuBarContactTab()
         {
-            return driver.FindElement(By.XPath("//*[@id=\"navbarExample\"]/ul/li[2]/a"));
+            return driverCommands.FindElementUntilClickable(By.XPath("//*[@id=\"navbarExample\"]/ul/li[2]/a"));
         }
 
         public IWebElement TopMenuBarAboutUsTab()
         {
-            return driver.FindElement(By.XPath("//*[@id=\"navbarExample\"]/ul/li[3]/a"));
+            return driverCommands.FindElementUntilClickable(By.XPath("//*[@id=\"navbarExample\"]/ul/li[3]/a"));
         }
 
         public IWebElement TopMenuBarCartTab()
         {
-            return driver.FindElement(By.XPath("//*[@id=\"navbarExample\"]/ul/li[4]/a"));
+            return driverCommands.FindElementUntilClickable(By.XPath("//*[@id=\"navbarExample\"]/ul/li[4]/a"));
         }
 
         public IWebElement TopMenuBarLogInTab()
         {
-            return driver.FindElement(By.XPath("//*[@id=\"navbarExample\"]/ul/li[5]/a"));
+            return driverCommands.FindElementUntilClickable(By.XPath("//*[@id=\"navbarExample\"]/ul/li[5]/a"));
         }
 
         public IWebElement TopMenuBarSingUpTab()
         {
-            return driver.FindElement(By.XPath("//*[@id=\"signin2\"]"));
+            return driverCommands.FindElementUntilClickable(By.XPath("//*[@id=\"signin2\"]"));
         }
     }
 }

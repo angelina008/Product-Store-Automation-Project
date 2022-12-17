@@ -4,16 +4,20 @@ namespace ProductStoreAutomationProject.Elements
 {
     class SingUpPopUpElements : MainTest
     {
-        public SingUpPopUpElements(IWebDriver driver) : base(driver) { }
+        DriverCommands driverCommands;
+        public SingUpPopUpElements(IWebDriver driver) : base(driver) 
+        {
+            driverCommands = new(driver);
+        }
 
         public IWebElement SingUpPopUpTitle()
         {
-            return driver.FindElement(By.Id("signInModalLabel"));
+            return driverCommands.FindElementUntilVisible(By.Id("signInModalLabel"));
         }
 
         public IWebElement PopUpXButton()
         {
-            return driver.FindElement(By.XPath("//*[@id=\"signInModal\"]/div/div/div[1]/button"));
+            return driverCommands.FindElementUntilClickable(By.XPath("//*[@id=\"signInModal\"]/div/div/div[1]/button"));
         }
     }
 }

@@ -1,21 +1,18 @@
 ﻿using OpenQA.Selenium;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ProductStoreAutomationProject.Elements
 {
     class CategoriesElements : MainTest
     {
+        DriverCommands driverCommands;
         public CategoriesElements(IWebDriver driver) : base(driver)
         {
+            driverCommands = new(driver);
         }
 
         public IWebElement ProductName(int i)
         {
-            return driver.FindElement(By.XPath($"//*[@id=\"tbodyid\"]/div[{i}]/div/div/h4/a"));
+            return driverCommands.FindElementUntilClickable(By.XPath($"//*[@id=\"tbodyid\"]/div[{i}]/div/div/h4/a"));
         }
 
         public int NumberOfProducts()
@@ -25,27 +22,27 @@ namespace ProductStoreAutomationProject.Elements
 
         public IWebElement CategoriesTable()
         {
-            return driver.FindElement(By.XPath("//*[@id=\"contcont\"]/div/div[1]/div"));
+            return driverCommands.FindElementUntilVisible(By.XPath("//*[@id=\"contcont\"]/div/div[1]/div"));
         }
 
         public IWebElement CategoriesTitle()
         {
-            return driver.FindElement(By.Id("cat"));
+            return driverCommands.FindElementUntilClickable(By.Id("cat"));
         }
         
         public IWebElement CategoriesPhones()
         {
-            return driver.FindElement(By.XPath("//*[@id=\"itemc\"][1]"));
+            return driverCommands.FindElementUntilClickable(By.XPath("//*[@id=\"itemc\"][1]"));
         }
 
         public IWebElement CategoriesLaptops()
         {
-            return driver.FindElement(By.XPath("//*[@id=\"itemc\"][2]"));
+            return driverCommands.FindElementUntilClickable(By.XPath("//*[@id=\"itemc\"][2]"));
         }
 
         public IWebElement CategoriesMonitors()
         {
-            return driver.FindElement(By.XPath("//*[@id=\"itemc\"][3]"));
+            return driverCommands.FindElementUntilClickable(By.XPath("//*[@id=\"itemc\"][3]"));
         }
     }
 }

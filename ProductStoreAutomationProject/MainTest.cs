@@ -5,7 +5,7 @@ using OpenQA.Selenium.Firefox;
 
 namespace ProductStoreAutomationProject
 {
-    class MainTest : DriverCommands
+    class MainTest
     {
         string url = "https://www.demoblaze.com/index.html";
         public IWebDriver driver;
@@ -18,6 +18,7 @@ namespace ProductStoreAutomationProject
             //driver = new FirefoxDriver();
             driver = new ChromeDriver();
             driver.Manage().Window.Maximize();
+            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(15);
             driver.Url = url;
         }
 
