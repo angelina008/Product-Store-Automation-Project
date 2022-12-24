@@ -50,5 +50,19 @@ namespace ProductStoreAutomationProject
             WaitUntilElementIsLoaded(locator);
             return driver.FindElement(locator);
         }
+
+        public void ScrollToEndOfPage()
+        {
+            driver.FindElement(By.CssSelector("body")).SendKeys(Keys.Control);
+            driver.FindElement(By.CssSelector("body")).SendKeys(Keys.End);
+            Thread.Sleep(300);
+        }
+
+        public void ScrollToTopOfPage()
+        {
+            driver.FindElement(By.CssSelector("body")).SendKeys(Keys.Control);
+            driver.FindElement(By.CssSelector("body")).SendKeys(Keys.Home);
+            Thread.Sleep(300);
+        }
     }
 }

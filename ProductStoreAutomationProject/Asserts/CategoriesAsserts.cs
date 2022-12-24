@@ -1,10 +1,5 @@
 ﻿using OpenQA.Selenium;
 using ProductStoreAutomationProject.Elements;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ProductStoreAutomationProject.Asserts
 {
@@ -24,6 +19,14 @@ namespace ProductStoreAutomationProject.Asserts
             return ProductName(i).Text != null && ProductName(i).Text == productName;
         }
 
+        public bool PreviousButtonIsDisplayed()
+        {
+            return ProductListPreviousButton().Text != null && ProductListPreviousButton().Displayed;
+        }
 
+        public bool NextButtonIsDisplayed()
+        {
+            return ProductListNextButton().Text != null && ProductListNextButton().Displayed;
+        }
     }
 }

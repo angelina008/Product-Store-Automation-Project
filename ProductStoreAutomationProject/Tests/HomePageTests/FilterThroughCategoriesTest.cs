@@ -1,12 +1,6 @@
 ﻿using NUnit.Framework;
-using OpenQA.Selenium;
 using ProductStoreAutomationProject.Asserts;
 using ProductStoreAutomationProject.Commands;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ProductStoreAutomationProject.Tests.HomePageTests
 {
@@ -23,7 +17,7 @@ namespace ProductStoreAutomationProject.Tests.HomePageTests
             var firstLaptop = "Sony vaio i5";
             var firstMonitor = "Apple monitor 24";
 
-            Assert.That(categoriesAsserts.CategoriesTableDisplayed(), Is.True, "Categories Table is displayed.");
+            Assert.That(categoriesAsserts.CategoriesTableDisplayed(), Is.True, "Categories Table is not displayed.");
             categoriesCommands.ClickOnCategoriesTitle();
             Assert.That(categoriesAsserts.ProductNameIsEqualTo(1, firstPhone), Is.True, $"The name \"{firstPhone}\" of the product is not correct.");
             Assert.That(categoriesAsserts.NumberOfProducts(), Is.EqualTo(9), "Products are missing.");
@@ -36,7 +30,23 @@ namespace ProductStoreAutomationProject.Tests.HomePageTests
             categoriesCommands.ClickOnCategoriesMonitors();
             Assert.That(categoriesAsserts.ProductNameIsEqualTo(1, firstMonitor), Is.True, $"The name \"{firstMonitor}\" of the product is not correct.");
             Assert.That(categoriesAsserts.NumberOfProducts(), Is.EqualTo(2), "Products are missing.");
+            categoriesCommands.ClickOnCategoriesTitle();
+            Assert.That(categoriesAsserts.ProductNameIsEqualTo(1, firstPhone), Is.True, $"The name \"{firstPhone}\" of the product is not correct.");
+            Assert.That(categoriesAsserts.NumberOfProducts(), Is.EqualTo(9), "Products are missing.");
 
+            driverCommands.ScrollToEndOfPage();
+            Assert.That(categoriesAsserts.PreviousButtonIsDisplayed(), Is.True, "Previous button is not displayed.");
+            Assert.That(categoriesAsserts.NextButtonIsDisplayed(), Is.True, "Next button is not displayed.");
+            categoriesCommands.ClickOnProductListNextButton();
+            driverCommands.ScrollToTopOfPage();
+            Assert.That(categoriesAsserts.ProductNameIsEqualTo(1, firstMonitor), Is.True, $"The name \"{firstMonitor}\" of the product is not correct.");
+            driverCommands.ScrollToEndOfPage();
+            Assert.That(categoriesAsserts.PreviousButtonIsDisplayed(), Is.True, "Previous button is not displayed.");
+            categoriesCommands.ClickOnProductListPreviousButton();
+            Assert.That(categoriesAsserts.PreviousButtonIsDisplayed(), Is.True, "Previous button is not displayed.");
+            Assert.That(categoriesAsserts.NextButtonIsDisplayed(), Is.True, "Next button is not displayed.");
+            driverCommands.ScrollToTopOfPage();
+            Assert.That(categoriesAsserts.ProductNameIsEqualTo(1, firstPhone), Is.False, $"The name \"{firstPhone}\" of the product is not correct."); //BUG
         }
     }
 }

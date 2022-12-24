@@ -44,5 +44,15 @@ namespace ProductStoreAutomationProject.Elements
         {
             return driverCommands.FindElementUntilClickable(By.XPath("//*[@id=\"itemc\"][3]"));
         }
+
+        public IWebElement ProductListPreviousButton()
+        {
+            return driverCommands.FindElementUntilClickable(By.XPath("//*[@id=\"prev2\"]"));
+        }
+
+        public IWebElement ProductListNextButton()
+        {
+            return driverCommands.FindElementUntilClickable(By.XPath("//*[@id=\"next2\"]"));
+        }
     }
 }

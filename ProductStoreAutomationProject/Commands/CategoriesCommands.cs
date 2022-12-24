@@ -38,5 +38,17 @@ namespace ProductStoreAutomationProject.Commands
             ProductName(i).Click();
             Thread.Sleep(500);
         }
+
+        public void ClickOnProductListPreviousButton()
+        {
+            ProductListPreviousButton().Click();
+            Thread.Sleep(500);
+        }
+
+        public void ClickOnProductListNextButton()
+        {
+            ProductListNextButton().Click();
+            Thread.Sleep(500);
+        }
     }
 }
