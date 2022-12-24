@@ -55,14 +55,14 @@ namespace ProductStoreAutomationProject
         {
             driver.FindElement(By.CssSelector("body")).SendKeys(Keys.Control);
             driver.FindElement(By.CssSelector("body")).SendKeys(Keys.End);
-            Thread.Sleep(300);
+            Thread.Sleep(1300);
         }
 
         public void ScrollToTopOfPage()
         {
             driver.FindElement(By.CssSelector("body")).SendKeys(Keys.Control);
             driver.FindElement(By.CssSelector("body")).SendKeys(Keys.Home);
-            Thread.Sleep(300);
+            Thread.Sleep(1300);
         }
     }
 }

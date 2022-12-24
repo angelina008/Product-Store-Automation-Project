@@ -9,7 +9,7 @@ namespace ProductStoreAutomationProject.Asserts
         {
         }
 
-        public bool CategoriesTableDisplayed()
+        public bool CategoriesTableIsDisplayed()
         {
             return CategoriesTable() != null && CategoriesTable().Displayed;
         }

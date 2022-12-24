@@ -17,7 +17,7 @@ namespace ProductStoreAutomationProject.Tests.HomePageTests
             var firstLaptop = "Sony vaio i5";
             var firstMonitor = "Apple monitor 24";
 
-            Assert.That(categoriesAsserts.CategoriesTableDisplayed(), Is.True, "Categories Table is not displayed.");
+            Assert.That(categoriesAsserts.CategoriesTableIsDisplayed(), Is.True, "Categories Table is not displayed.");
             categoriesCommands.ClickOnCategoriesTitle();
             Assert.That(categoriesAsserts.ProductNameIsEqualTo(1, firstPhone), Is.True, $"The name \"{firstPhone}\" of the product is not correct.");
             Assert.That(categoriesAsserts.NumberOfProducts(), Is.EqualTo(9), "Products are missing.");
