@@ -40,6 +40,11 @@ namespace ProductStoreAutomationProject.Elements
             return driverCommands.FindElementUntilClickable(By.XPath("//*[@id=\"navbarExample\"]/ul/li[5]/a"));
         }
 
+        public IWebElement TopMenuBarLogOutTab()
+        {
+            return driverCommands.FindElementUntilClickable(By.Id("logout2"));
+        }
+
         public IWebElement TopMenuBarSingUpTab()
         {
             return driverCommands.FindElementUntilClickable(By.XPath("//*[@id=\"signin2\"]"));

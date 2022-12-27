@@ -43,6 +43,12 @@ namespace ProductStoreAutomationProject.Commands
             Thread.Sleep(500);
         }
 
+        public void ClickOnLogOutTab()
+        {
+            TopMenuBarLogOutTab().Click();
+            Thread.Sleep(500);
+        }
+
         public void ClickOnSingUpTab()
         { 
             TopMenuBarSingUpTab().Click();
