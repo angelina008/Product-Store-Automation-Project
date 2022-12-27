@@ -1,1 +1,1 @@
-# ZeroBankAutomationProject
+# ProductStoreAutomationProject
