@@ -30,7 +30,7 @@ namespace ProductStoreAutomationProject.Elements
             return driverCommands.FindElementUntilClickable(By.Id("loginpassword"));
         }
 
-        public IWebElement CancelButton()
+        public IWebElement CloseButton()
         {
             return driverCommands.FindElementUntilClickable(By.XPath("//*[@id=\"logInModal\"]/div/div/div[3]/button[1]"));
         }

@@ -69,7 +69,6 @@ namespace ProductStoreAutomationProject
         {
             Thread.Sleep(1500);
             driver.SwitchTo().Alert().Accept();
-            driver.FindElement(By.CssSelector("body")).SendKeys(Keys.Enter);
             Thread.Sleep(1000);
         }
 

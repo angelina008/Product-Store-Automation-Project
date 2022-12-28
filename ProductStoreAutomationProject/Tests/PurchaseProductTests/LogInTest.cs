@@ -18,7 +18,7 @@ namespace ProductStoreAutomationProject.Tests.PurchaseProductTests
             Assert.That(carouselAsserts.CarouselIsDisplayed(), Is.True, "Carousel is not displayed, Home Page is not loaded.");
             topMenuBarCommands.ClickOnLogInTab();
             Assert.That(popUpAsserts.LogInPopUpIsDisplayed(), Is.True, "Log In pop up is not displayed");
-            logInPopUpCommands.ClickOnCancelButton();
+            logInPopUpCommands.ClickOnCloseButton();
 
             Assert.That(carouselAsserts.CarouselIsDisplayed(), Is.True, "Carousel is not displayed, Home Page is not loaded.");
             topMenuBarCommands.ClickOnLogInTab();
