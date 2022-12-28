@@ -8,5 +8,11 @@ namespace ProductStoreAutomationProject.Commands
         public ProductDescriptionPageCommands(IWebDriver driver) : base(driver)
         {
         }
+
+        public void ClickOnAddToCartButton()
+        {
+            AddToCartButton().Click();
+            Thread.Sleep(1500);
+        }
     }
 }

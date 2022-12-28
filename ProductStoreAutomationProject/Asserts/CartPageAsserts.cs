@@ -9,8 +9,14 @@ namespace ProductStoreAutomationProject.Asserts
 
         public bool ProductCartTableIsDisplayed()
         {
-            Thread.Sleep(2000);  //needs to be changed with other type of waiting
+            Thread.Sleep(2000);
             return ProductCartTable() != null && ProductCartTable().Displayed;
+        }
+
+        public bool NumberOfProductsInCartIsEqualTo(int n)
+        {
+            Thread.Sleep(2000);
+            return NumberOfProductsInCart() == n;
         }
     }
 }
