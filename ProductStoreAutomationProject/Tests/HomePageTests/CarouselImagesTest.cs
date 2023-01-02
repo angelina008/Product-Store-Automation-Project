@@ -13,7 +13,7 @@ namespace ProductStoreAutomationProject.Tests.HomePageTests
             CarouselAsserts carouselAsserts = new(driver);
 
             Assert.That(carouselAsserts.CarouselIsDisplayed(), Is.True, "Carousel is not displayed, Home Page is not loaded.");
-            //AutomaticChangeImagesInCarousel(); //for saving time in executions comment this line
+            //AutomaticChangeImagesInCarousel(); //for saving time in executions comment out this line
             Assert.That(carouselAsserts.FirstImageIsDisplayed(), Is.True, "First Image in Carousel is not displayed, automatic swipe.");
             carouselCommands.WaitForImageToChange();
             carouselCommands.ClickOnPrevButton();

@@ -46,7 +46,8 @@ namespace ProductStoreAutomationProject.Tests.HomePageTests
             Assert.That(categoriesAsserts.PreviousButtonIsDisplayed(), Is.True, "Previous button is not displayed.");
             Assert.That(categoriesAsserts.NextButtonIsDisplayed(), Is.True, "Next button is not displayed.");
             driverCommands.ScrollToTopOfPage();
-            Assert.That(categoriesAsserts.ProductNameIsEqualTo(1, firstPhone), Is.False, $"The name \"{firstPhone}\" of the product is not correct."); //BUG
+            //BUG!!
+            Assert.That(categoriesAsserts.ProductNameIsEqualTo(1, firstPhone), Is.True, $"The name \"{firstPhone}\" of the product is not correct.");
         }
     }
 }
