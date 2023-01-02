@@ -10,6 +10,7 @@ namespace ProductStoreAutomationProject.Asserts
 		LogInPopUpElements loginPopUpElements;
 		SingUpPopUpElements singUpPopUpElements;
 		TopMenuBarElements topMenuBarElements;
+		PlaceOrderPopUpElements placeOrderPopUpElements;
 
         public PopUpAsserts(IWebDriver driver) : base(driver) {
 
@@ -18,7 +19,7 @@ namespace ProductStoreAutomationProject.Asserts
 			loginPopUpElements = new(driver);
 			singUpPopUpElements = new(driver);
 			topMenuBarElements = new(driver);
-
+			placeOrderPopUpElements = new(driver);
         }
 
         public bool ContactPopUpIsDisplayed()
@@ -55,6 +56,18 @@ namespace ProductStoreAutomationProject.Asserts
         {
             Thread.Sleep(1000);
             return topMenuBarElements.TopMenuBarSingUpTab() != null && topMenuBarElements.TopMenuBarSingUpTab().Displayed;
+        }
+
+        public bool PlaceOrderPopUpIsDisplayed()
+        {
+            Thread.Sleep(1000);
+            return placeOrderPopUpElements.PlaceOrderPopUpTitle() != null && placeOrderPopUpElements.PlaceOrderPopUpTitle().Displayed;
+        }
+
+        public bool SuccessfulPurchasePopUpIsDisplayed()
+        {
+            Thread.Sleep(1000);
+            return placeOrderPopUpElements.PurchaseMessageNewPopUp() != null && placeOrderPopUpElements.PurchaseMessageNewPopUp().Displayed;
         }
     }
 }
