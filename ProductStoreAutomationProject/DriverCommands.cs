@@ -7,6 +7,7 @@ namespace ProductStoreAutomationProject
     class DriverCommands : MainTest
     {
         WebDriverWait webDriverWait;
+
         public DriverCommands(IWebDriver driver) : base(driver)
         {
             webDriverWait = new WebDriverWait(driver, TimeSpan.FromSeconds(15));
@@ -14,7 +15,10 @@ namespace ProductStoreAutomationProject
 
         public void WaitUntilElementDisappears(By locator)
         {
-            webDriverWait.Until(ExpectedConditions.InvisibilityOfElementLocated(locator));
+            //webDriverWait.Until(ExpectedConditions.InvisibilityOfElementLocated(locator));
+            var e = driver.FindElement(locator);
+            while (e.Displayed)
+                Thread.Sleep(100);
         }
 
         public void WaitUntilElementIsVisible(By locator)

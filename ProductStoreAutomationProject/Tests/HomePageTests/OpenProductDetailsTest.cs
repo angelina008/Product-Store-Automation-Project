@@ -14,6 +14,31 @@ namespace ProductStoreAutomationProject.Tests.HomePageTests
             ProductDescriptionPageAsserts productDescriptionPageAsserts = new(driver);
             TopMenuBarCommands topMenuBarCommands = new(driver);
             CarouselAsserts carouselAsserts = new(driver);
+
+            Assert.That(carouselAsserts.CarouselIsDisplayed(), Is.True, "Carousel is not displayed, Home Page is not loaded.");
+            var productName = categoriesCommands.ProductName(1).Text;
+            categoriesCommands.ClickOnProductName(1);
+            Assert.Multiple(() =>
+                {
+                    Assert.That(productDescriptionPageAsserts.ProductNameTitleIsDisplayed(), Is.True, "Product Title is not displayed, not on Product Details Page.");
+                    Assert.That(productDescriptionPageAsserts.ProductNameTitleIsEqualToProductName(productName), Is.True, "Prouct Title is not correct.");
+                    Assert.That(productDescriptionPageAsserts.ProductPriceIsDisplayed(), Is.True, "Product Price is not displayed.");
+                    Assert.That(productDescriptionPageAsserts.ProductDescriptionIsDisplayed(), Is.True, "Product Description is not displayed.");
+                    Assert.That(productDescriptionPageAsserts.AddToCartButtonIsDisplayed(), Is.True, "Product Add to cart button is not displayed.");
+                    Assert.That(productDescriptionPageAsserts.ProductPhotoIsDisplayed(), Is.True, "Product Price is not displayed.");
+                });
+            topMenuBarCommands.ClickOnProductStoreLogo();
+            Thread.Sleep(1500);
+
+            }
+
+        [Test]
+        public void OpenALLProductDetailsPageTest()
+        {
+            CategoriesCommands categoriesCommands = new(driver);
+            ProductDescriptionPageAsserts productDescriptionPageAsserts = new(driver);
+            TopMenuBarCommands topMenuBarCommands = new(driver);
+            CarouselAsserts carouselAsserts = new(driver);
             DriverCommands driverCommands = new(driver);
             CategoriesAsserts categoriesAsserts = new(driver);
             var firstMonitor = "Apple monitor 24";
