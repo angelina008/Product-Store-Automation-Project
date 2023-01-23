@@ -16,7 +16,7 @@ namespace ProductStoreAutomationProject.Commands
         public void ClickOnCloseButton()
         {
             CloseButton().Click();
-            Thread.Sleep(700);
+            Thread.Sleep(600);
         }
 
         public void ClickOnSingUpButton()

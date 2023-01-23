@@ -80,7 +80,7 @@ namespace ProductStoreAutomationProject.Tests.HomePageTests
                     Assert.That(productDescriptionPageAsserts.ProductPhotoIsDisplayed(), Is.True, "Product Price is not displayed.");
                 });
                 topMenuBarCommands.ClickOnProductStoreLogo();
-                Thread.Sleep(1500);
+                Thread.Sleep(1600);
             }
         }
     }
