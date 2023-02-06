@@ -1,4 +1,5 @@
 ﻿using NUnit.Framework;
+using OpenQA.Selenium;
 using ProductStoreAutomationProject.Asserts;
 using ProductStoreAutomationProject.Commands;
 
@@ -7,7 +8,7 @@ namespace ProductStoreAutomationProject.Tests.PurchaseProductTests
     class PlaceOrderTest : MainTest
     {
         [Test]
-        public void PlaceOrder()
+        public void PlaceOrderSuccessfully()
         {
             CarouselAsserts carouselAsserts = new(driver);
             LogInPopUpCommands logInPopUpCommands = new(driver);
@@ -65,6 +66,37 @@ namespace ProductStoreAutomationProject.Tests.PurchaseProductTests
             placeOrderPopUpCommands.ClickOnPurchaseButton();
             Assert.That(popUpAsserts.SuccessfulPurchasePopUpIsDisplayed(), Is.True, "Successful Purchase pop up is not displayed");
             placeOrderPopUpCommands.ClickOnOKButton();
+
+            topMenuBarCommands.ClickOnLogOutTab();
+            Assert.That(popUpAsserts.SingUpTabIsDisplayed(), Is.True, "Welcome User is displayed");
+            Assert.That(carouselAsserts.CarouselIsDisplayed(), Is.True, "Carousel is not displayed, Home Page is not loaded.");
+        }
+
+        [Test]
+        public void PlaceOrderUnsuccessfully()
+        {
+            CarouselAsserts carouselAsserts = new(driver);
+            LogInPopUpCommands logInPopUpCommands = new(driver);
+            PopUpAsserts popUpAsserts = new(driver);
+            TopMenuBarCommands topMenuBarCommands = new(driver);
+            DriverCommands driverCommands = new(driver);
+            CategoriesCommands categoriesCommands = new(driver);
+            ProductDescriptionPageAsserts productDescriptionPageAsserts = new(driver);
+            CategoriesAsserts categoriesAsserts = new(driver);
+            ProductDescriptionPageCommands productDescriptionPageCommands = new(driver);
+            CartPageAsserts cartPageAsserts = new(driver);
+            CartPageCommands cartPageCommands = new(driver);
+            PlaceOrderPopUpCommands placeOrderPopUpCommands = new(driver);
+            var productName1 = categoriesCommands.ProductName(1).Text;
+
+            Assert.That(carouselAsserts.CarouselIsDisplayed(), Is.True, "Carousel is not displayed, Home Page is not loaded.");
+            topMenuBarCommands.ClickOnLogInTab();
+            Assert.That(popUpAsserts.LogInPopUpIsDisplayed(), Is.True, "Log In pop up is not displayed");
+            logInPopUpCommands.InsertTextInUsernameTextBox("AngelinaQA");
+            logInPopUpCommands.InsertTextInPasswordTextBox("P@ssw0rd");
+            logInPopUpCommands.ClickOnLogInButton();
+            Assert.That(popUpAsserts.LogInWelcomeUserIsDisplayed(), Is.True, "Welcome User is not displayed");
+            Assert.That(carouselAsserts.CarouselIsDisplayed(), Is.True, "Carousel is not displayed, Home Page is not loaded.");
 
             Assert.That(carouselAsserts.CarouselIsDisplayed(), Is.True, "Carousel is not displayed, Home Page is not loaded.");
             categoriesCommands.ClickOnProductName(1);
